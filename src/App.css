@@ -8,4 +8,203 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: rgb(219, 144, 94);
+}
+
+/*   CARD    */
+.card-wrapper{
+  background-image: url('./images/card.jpg');
+  background-size: cover;
+  /* box-shadow: 0 30px 60px 0 rgba(141, 98, 43, 0.4); */
+  box-shadow: 0 30px 60px 0 rgba(90, 116, 148, 0.4);
+  color: #fff;
+  width:400px;
+  height: 240px;
+  padding: 1.5rem;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  top:-30%;
+  left: 16%;
+  z-index: 99;
+}
+
+.card-wrapper header{
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-wrapper header .visa{
+  height: 70px;
+  transform: translateY(-10px);
+}
+
+.card-wrapper .card-number h1{
+  font-size: 25px;
+  font-weight: bold;
+  word-spacing: 1rem;
+  letter-spacing: 2px;
+  text-shadow: 1px 2px 7px rgba(255, 255, 255, 0.3);
+}
+
+.card-wrapper .card-information{
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-wrapper .card-information article p:first-child{
+  color: rgba(255, 255, 255, 0.459);
+  font-size: 14px;
+}
+
+.card-wrapper .card-information article p:last-child{
+  text-transform: uppercase;
+  word-spacing: 0.3rem;
+  text-shadow: 1px 2px 7px rgba(255, 255, 255, 0.3);
+}
+
+/*   FORM    */
+form{
+  background-color: #fff;
+  width: 40%;
+  box-shadow: 0 30px 60px 0 rgba(141, 98, 43, 0.4);
+  border-radius: 10px;
+  padding: 2rem;
+  padding-top: 11rem;
+  margin-top: 10rem;
+  position: relative;
+}
+
+.form-field{
+  margin-bottom: 1rem;
+  width: 100%;
+  position: relative;
+}
+
+.form-field-wrapper{
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-field-wrapper .form-field:nth-of-type(1){
+  width: 70%;
+}
+
+.form-field-wrapper .form-field:nth-of-type(2){
+  width: 30%;
+}
+
+.form-field-wrapper .form-field article{
+  display: inline-block;
+  width: 48%;
+  position: relative;
+}
+
+.form-field-wrapper .form-field input{
+  width: 150px;
+}
+
+label{
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #1a3b5d;
+}
+
+input[type='text'],
+input[type='number']{
+  border-radius: 5px;
+  border: 1px solid #ced6e0;
+  font-size: 18px;
+  padding: 10px 15px;
+  width: 95%;
+  color: #1a3b5d;
+  position: relative;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+select{
+  border-radius: 5px;
+  border: 1px solid #ced6e0;
+  font-size: 18px;
+  padding: 10px 15px;
+  width: 190px;
+  color: #1a3b5d;
+  display: inline-block;
+  position: relative;
+}
+
+input:focus, select:focus{
+  border-color: rgba(238, 132, 11, 0.7);
+  outline: rgba(238, 132, 11, 0.7);
+  box-shadow: 0px 10px 20px -13px rgba(32, 56, 117, 0.35);
+  /* box-shadow: 0 20px 60px 0 rgba(14, 42, 90, 0.55); */
+}
+
+.form-field.error select,
+.form-field.success select{
+  -moz-appearance:none; /* Firefox */
+  -webkit-appearance:none; /* Safari and Chrome */
+  appearance:none;
+}
+
+.form-field.error small{
+  visibility: visible;
+  color: #e74c3c;
+}
+
+.form-field i{
+  visibility: hidden;
+  position: absolute;
+  top:38px;
+  right: 10px;
+}
+
+.form-field article i{
+  visibility: hidden;
+  position: absolute;
+  top: 13px;
+  right: 25px;
+}
+
+.form-field.success i.fa-check-circle{
+  visibility: visible;
+  color: #2ecc71;
+}
+
+.form-field.error i.fa-exclamation-circle{
+  visibility: visible;
+  color: #e74c3c;
+}
+
+small{
+  visibility: hidden;
+  display: block;
+}
+
+/*   BUTTON   */
+button{
+  appearance: none;
+  border: none;
+  width: 100%;
+  padding: 15px 0;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  font-size: 20px;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  color: #fff;
+  /* background-color: #f77b07; */
+  background-color: #ee840b;
 }
