@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/card-form/static/css/main.3dee1066.css",
+    "main.js": "/card-form/static/js/main.d5283173.js",
+    "static/media/chip.svg": "/card-form/static/media/chip.fa100e22eaf07f77ca2943bb109ac80a.svg",
+    "static/media/card.jpg": "/card-form/static/media/card.047f86f3454194c046e7.jpg",
+    "static/media/visa-logo@logotyp.us.svg": "/card-form/static/media/visa-logo@logotyp.us.7034926b4f42f953b8b213b814228d45.svg",
+    "index.html": "/card-form/index.html",
+    "main.3dee1066.css.map": "/card-form/static/css/main.3dee1066.css.map",
+    "main.d5283173.js.map": "/card-form/static/js/main.d5283173.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3dee1066.css",
+    "static/js/main.d5283173.js"
+  ]
+}
