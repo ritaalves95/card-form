@@ -317,28 +317,48 @@ button{
 
   .card-wrapper,
   .back-card{
-    width: 262px;
-    height: 180px;
-    left:0;
-    top:-15%;
+    width: 220px;
+    height: 120px;
+    left:50%;
+    top:-18%;
+    transform: translateX(-50%);
+  }
+  
+  .card-wrapper header{
+    height: 30px;
+    margin-bottom: 20px;
+  }
+
+  .chip{
+    width: 40px;
+  }
+  .visa{
+    width: 60px;
+    transform: translateY(-20px) !important;
+  }
+
+  .card-wrapper .card-number {
+    margin-bottom: 20px;
   }
 
   .card-wrapper .card-number h1{
-    font-size: 16px;
+    font-size: 14px;
+    word-spacing: 0.5rem;
+    letter-spacing: 1px;  
   }
 
   .card-wrapper .card-information article p:first-child{
-    font-size: 12px;
+    font-size: 10px;
   }
 
   .card-wrapper .card-information article p:last-child{
-    font-size: 14px;
+    font-size: 12px;
   }
 
   form{
     width: 100%;
     padding:1rem;
-    padding-top: 11rem;
+    padding-top: 6rem;
     margin-top: 5rem;
   }
 
@@ -365,6 +385,6 @@ button{
   input[type='text'],
   input[type='number'],
   .form-field-wrapper .form-field input{
-  width: 245px;
+    width: 245px;
   }
 }
