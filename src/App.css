@@ -310,7 +310,7 @@ button{
 
 }
 
-@media(max-width: 326px){
+@media(max-width: 668px){
   .container{
     padding: 1.5rem;
   }
