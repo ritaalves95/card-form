@@ -1,8 +1,14 @@
-import {useState} from 'react'
+import {useState, useRef} from 'react'
+import BackCard from './BackCard'
 import Card from './Card'
 
 const Form = () => {
+//  Back Card
+    const [backCard, SetBackCard] = useState(false);
+
 // Values
+    const inputEl = useRef();
+
     const [css, setcss] = useState({
         cardNumber: '',
         cardHolder: '',
@@ -32,17 +38,55 @@ const Form = () => {
             ...values,
             [e.target.name]: e.target.value,
         })
+
+        e.target.name === 'cvv' && !backCard && showBackCard();
+        e.target.name !== 'cvv' && backCard && hideBackCard();
+    }
+
+
+//  Handle BackCard
+    const showBackCard = (e) => {
+        SetBackCard(true);
+        setcss({...css, cvv: 'flip'})
+        setTimeout(() => {
+            setcss({...css, cvv: ''});
+        }, 1000);                
+    }
+
+    const hideBackCard = (e) => {
+        SetBackCard(false);
+        setcss({...css, cvv: 'flip-out'})
+        setTimeout(() => {
+            setcss({...css, cvv: ''});
+        }, 1000);               
+}
+   
+// check if input has numbers
+    const isNumber = (e) => {
+        let ASCIICode = (e.which) ? e.which : e.keyCode
+
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)){
+            let output = e.target.id.replace(/([A-Z]+)/g, ",$1").replace(',', " ").toLowerCase();
+
+            setErrorFor(e.target.id, `${output} must be only numbers`)
+            return false;
+
+        }else{
+            setErrorFor(e.target.id, '')
+            setcss({...css, [e.target.id]: ''})
+            return true;
+        }
     }
 
 // handle submit
     const handleSubmit = (e) =>{
         e.preventDefault();
-        console.log('submit')
+
         for (var key in values) {
             if(!values[key].length){
                 setErrorFor(key, 'This field is required');
             }else{
-                checkInputs(key)
+                checkInputs(key);
             }
         }
 
@@ -52,7 +96,11 @@ const Form = () => {
     const checkInputs = (input) => {
 
         if(input === 'cardNumber'){
-            cardNumber.length === 13 ? setSuccessFor(input) : setErrorFor(input, 'You must have 13 numbers');
+            cardNumber.length === 16 ? setSuccessFor(input) : setErrorFor(input, 'You must have 16 numbers');
+        }
+
+        if(input === 'cardHolder'){
+            cardHolder.length ? setSuccessFor(input) : setErrorFor(input, 'This field is required');
         }
 
         if(input === 'year'){
@@ -60,10 +108,20 @@ const Form = () => {
             let getmonth = date.getMonth() + 1;
             let getyear = date.getFullYear().toString();
 
-            if(( year === getyear && Number(month) >= getmonth) || year !== getyear){
+            if(( year === getyear && parseFloat(month) >= getmonth) || year !== getyear){
                 setSuccessFor(input)
             }else{
                 setErrorFor(input, 'Invalid date')
+            }
+        }
+
+        if(input === 'cvv'){
+            if(cvv.length !== 3){
+                setErrorFor(input, 'You must have 3 numbers');
+            }else if(isNaN(cvv)){
+                setErrorFor(input, 'Must be a number');
+            }else{
+                setSuccessFor(input);
             }
         }
 
@@ -86,9 +144,11 @@ const Form = () => {
         setcss(css => ({...css, ...newCss }));
     }
 
-  return (
+    
+    return (
     <form className='card-form' onSubmit={handleSubmit}>
-        <Card />
+        <Card css={css.cvv} cardNumber={cardNumber} fullName={cardHolder} month={month} year={year} />
+        {backCard && <BackCard cvv={cvv} css={css.cvv} />}
         <div className={`form-field ${css.cardNumber}`}>
             <label htmlFor="cardNumber">Card Number</label>
             <input 
@@ -97,6 +157,7 @@ const Form = () => {
                 placeholder="1234 1234 1234 333 1" 
                 name="cardNumber" 
                 onChange={handleChange}
+                onKeyDown={isNumber}
                 id="cardNumber" />
             <i className="fas fa-check-circle"></i>
             <i className="fas fa-exclamation-circle"></i>
@@ -167,7 +228,9 @@ const Form = () => {
                     maxLength="3"
                     id="cvv" 
                     name="cvv"
-                    onChange={handleChange} />
+                    ref={inputEl}
+                    onChange={handleChange}
+                    onKeyDown={isNumber} />
                 <i className="fas fa-check-circle"></i>
                 <i className="fas fa-exclamation-circle"></i>
                 <small>{error.cvv}</small>
