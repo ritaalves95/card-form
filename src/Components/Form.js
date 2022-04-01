@@ -59,7 +59,7 @@ const Form = () => {
         setTimeout(() => {
             setcss({...css, cvv: ''});
         }, 1000);               
-}
+    }
    
 // check if input has numbers
     const isNumber = (e) => {
@@ -75,6 +75,18 @@ const Form = () => {
             setErrorFor(e.target.id, '')
             setcss({...css, [e.target.id]: ''})
             return true;
+        }
+    }
+   
+// check for string without numbers
+    const isStrg = (e) => {
+        let pattern = /^[A-Za-z\s]*$/;
+
+        if(!pattern.test(e.target.value)){
+            setErrorFor(e.target.id, `Card holder must be only letters`)
+        }else{
+            setErrorFor(e.target.id, '')
+            setcss({...css, [e.target.id]: ''})
         }
     }
 
@@ -171,7 +183,8 @@ const Form = () => {
                 value={cardHolder}
                 placeholder="Alfredo Flores"
                 name="cardHolder"
-                onChange={handleChange} 
+                onChange={handleChange}
+                onKeyUp={isStrg} 
                 id="cardHolder" />
             <i className="fas fa-check-circle"></i>
             <i className="fas fa-exclamation-circle"></i>

@@ -17,7 +17,6 @@
 .back-card{
   background-image: url('./images/card.jpg');
   background-size: cover;
-  /* box-shadow: 0 30px 60px 0 rgba(141, 98, 43, 0.4); */
   box-shadow: 0 30px 60px 0 rgba(90, 116, 148, 0.4);
   color: #fff;
   width:400px;
@@ -218,8 +217,8 @@ select{
 }
 
 input:focus, select:focus{
-  border-color: rgba(238, 132, 11, 0.7);
-  outline: rgba(238, 132, 11, 0.7);
+  border-color: #1663d65a;
+  outline: #1663d65a;
   box-shadow: 0px 10px 20px -13px rgba(32, 56, 117, 0.35);
 }
 
@@ -228,6 +227,11 @@ input:focus, select:focus{
   -moz-appearance:none; /* Firefox */
   -webkit-appearance:none; /* Safari and Chrome */
   appearance:none;
+}
+
+.form-field.error input,
+.form-field.error select{
+  border-color: #e74c3c;
 }
 
 .form-field.error small{
@@ -247,6 +251,11 @@ input:focus, select:focus{
   position: absolute;
   top: 13px;
   right: 25px;
+}
+
+.form-field.success input,
+.form-field.success select{
+  border-color: #2ecc71;
 }
 
 .form-field.success i.fa-check-circle{
@@ -277,6 +286,11 @@ button{
   border-radius: 5px;
   color: #fff;
   background-color: #ee840b;
+  transition: 0.5s all ease;
+}
+
+button:hover{
+  background-color: #e87f4a;
 }
 
 /*  MEDIA QUERIES    */
