@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/card-form/static/css/main.73b379f7.css",
-    "main.js": "/card-form/static/js/main.d5283173.js",
+    "main.css": "/card-form/static/css/main.17bfeb54.css",
+    "main.js": "/card-form/static/js/main.b8c4c5c0.js",
     "static/media/chip.svg": "/card-form/static/media/chip.fa100e22eaf07f77ca2943bb109ac80a.svg",
     "static/media/card.jpg": "/card-form/static/media/card.047f86f3454194c046e7.jpg",
     "static/media/visa-logo@logotyp.us.svg": "/card-form/static/media/visa-logo@logotyp.us.7034926b4f42f953b8b213b814228d45.svg",
     "index.html": "/card-form/index.html",
-    "main.73b379f7.css.map": "/card-form/static/css/main.73b379f7.css.map",
-    "main.d5283173.js.map": "/card-form/static/js/main.d5283173.js.map"
+    "main.17bfeb54.css.map": "/card-form/static/css/main.17bfeb54.css.map",
+    "main.b8c4c5c0.js.map": "/card-form/static/js/main.b8c4c5c0.js.map"
   },
   "entrypoints": [
-    "static/css/main.73b379f7.css",
-    "static/js/main.d5283173.js"
+    "static/css/main.17bfeb54.css",
+    "static/js/main.b8c4c5c0.js"
   ]
 }
